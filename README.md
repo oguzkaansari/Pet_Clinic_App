@@ -1,2 +1,2 @@
-# Pet_Clinic_App
+# Pet Clinic Web Applciation with Spring MVC
  Pet Clinic Application with Spring MVC
