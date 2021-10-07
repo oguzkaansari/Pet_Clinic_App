@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+  <title>Ürün Listesi</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+  <div class="row">
+
+    <div class="card mt-4 ms-2">
+
+      <div class="card-header">
+        <span class="fas fa-user"></span>
+        Ürünler
+      </div>
+
+      <div class="card-body">
+
+        <div class="row">
+
+          <div class="col-md-8">
+            <button type="button" class="btn default-button mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">
+              <span class="fas fa-plus"></span>
+              Yeni Ürün Ekle
+            </button>
+
+          </div>
+
+          <div class="col-md-4">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+              <div class="row">
+
+                <div class="col-auto">
+                  <input type="search" class="form-control form-control-dark" placeholder="Ürün Ara" aria-label="Search">
+                </div>
+
+                <div class="col-auto">
+                  <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+
+        <div class="row">
+
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Ürün Adı</th>
+              <th scope="col">Birim</th>
+              <th scope="col">Tip</th>
+              <th scope="col">Barkod</th>
+              <th scope="col">Kod</th>
+              <th scope="col">KDV</th>
+              <th scope="col">Alış Fiyatı</th>
+              <th scope="col">Satış Fiyatı</th>
+              <th scope="col">Kategori</th>
+              <th scope="col">Stok</th>
+
+
+            </tr>
+            </thead>
+            <tbody id="tBodyProducts">
+
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal" id="addProductModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">
+            <span class="fas fa-plus"></span>
+            Yeni Ürün Ekle
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form class="row g-3" id="product_add_form">
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_name" class="form-label">Ürün Adı</label>
+                  <input type="text" class="form-control" id="pr_name" placeholder="Ürün Adını Yazınız">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_unit" class="form-label">Birim</label>
+                  <select class="form-select" id="pr_unit">
+                    <option value="0" selected>Birim Seçiniz</option>
+
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="p_category" class="form-label">Kategori</label>
+                  <select class="form-select" id="p_category">
+                    <option value="0" selected>Kategori Seçiniz</option>
+
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_type" class="form-label">Ürün Tipi</label>
+                  <select class="form-select" id="pr_type">
+                    <option value="0" selected>Ürün Tipi Seçiniz</option>
+
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_supplier" class="form-label">Tedarikçi</label>
+                  <select class="form-select" id="pr_supplier">
+                    <option value="0" selected>Tedarikçi Seçiniz</option>
+
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_barcode" class="form-label">Ürün Barkodu</label>
+                  <input type="number" class="form-control" id="pr_barcode" placeholder="Ürün Barkodunu Yazınız">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_code" class="form-label">Ürün Kodu</label>
+                  <input type="number" class="form-control" id="pr_code" placeholder="Ürün Kodunu Yazınız">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_buy_price" class="form-label">Alış Fiyatı</label>
+                  <input type="number" class="form-control" id="pr_buy_price">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_sell_price" class="form-label">Satış Fiyatı</label>
+                  <input type="number" class="form-control" id="pr_sell_price">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_tax" class="form-label">KDV %</label>
+                  <select class="form-select" id="pr_tax">
+
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_stock" class="form-label">Stok Miktarı</label>
+                  <input type="number" class="form-control" id="pr_stock">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="row mt-3 me-auto ms-auto">
+                  <label for="pr_crit_stock" class="form-label">Kritik Stok Miktarı</label>
+                  <input type="number" class="form-control" id="pr_crit_stock">
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn red-button" data-bs-dismiss="modal">Kapat</button>
+              <button type="submit" class="btn default-button">Kaydet</button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</th:block>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+  <meta charset="UTF-8">
+  <title>Ödeme Çıkışı</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+  <div class="row">
+
+    <div class="card mt-4 ms-2">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-3">
+            <span class="fas fa-file-alt"></span>
+            Yeni Ödeme Çıkışı
+          </div>
+          <div class="col-md-7"></div>
+          <div class="col-md-2">
+            No : <span id="t_no"></span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+
+        <form class="row g-3">
+
+          <div class="row mt-3">
+
+            <div class="col-md-6">
+              <div class="row mt-3">
+                <label for="t_select" class="form-label">Fatura</label>
+                <select id="t_select" class="selectpicker" data-width="100%" data-show-subtext="true" data-live-search="true">
+                  <option value="0" selected>Fatura seçiniz</option>
+
+                </select>
+              </div>
+
+              <div class="row mt-3 me-auto ms-auto">
+                <label for="pay_type_selected" class="form-label">Ürün</label>
+                <select class="form-select" id="pay_type_selected">
+                  <option value="0" selected>Ödeme Yöntemi Seçiniz</option>
+
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+
+              <div class="row mt-5">
+
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                  <div class="card" id="payOutFormCard" style="width: 18rem;">
+                    <div class="card-body" id="payOutFormCardBody">
+                      <h5 class="card-title">Toplam Ücret</h5>
+                      <h5 id="t_price">0</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3"></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="row mt-3 me-auto ms-auto">
+            <label for="s_note" class="form-label">Not</label>
+            <textarea type="text" class="form-control" id="s_note" placeholder="Notunuzu Girin" rows="3"></textarea>
+
+          </div>
+
+          <div class="row mt-3">
+
+            <div class="col-md-11"></div>
+
+            <div class="col-md-1">
+              <button type="submit" class="btn default-button mb-3 mt-3">Ekle</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</th:block>
+
+</body>
+</html>

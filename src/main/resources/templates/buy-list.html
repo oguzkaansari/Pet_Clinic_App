@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+  <title>Alış Listesi</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+  <div class="row">
+
+    <div class="card mt-4 ms-2">
+
+      <div class="card-header">
+        <span class="fas fa-user"></span>
+        Alışlar
+      </div>
+
+      <div class="card-body">
+
+        <div class="row">
+
+          <div class="col-md-8">
+            <button type="button" class="btn default-button mb-3" onclick="window.location.href='/buy/form'">
+              <span class="fas fa-plus"></span>
+              Yeni Alış Ekle
+            </button>
+
+          </div>
+
+          <div class="col-md-4">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" id="buy_list_search">
+              <div class="row">
+
+                <div class="col-auto">
+                  <input type="search" id="b_key" class="form-control form-control-dark" placeholder="Fatura Ara" aria-label="Search">
+                </div>
+
+                <div class="col-auto">
+                  <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+
+        <div class="row">
+
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Başlık</th>
+              <th scope="col">Tutar</th>
+              <th scope="col">Tedarikçi</th>
+              <th scope="col">Fatura No.</th>
+              <th scope="col">Not</th>
+
+            </tr>
+            </thead>
+            <tbody id="tBodyBuyListTickets">
+
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal" id="ticketNoteModalBuyList" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" id="ticketNoteModalBuyListContent">
+
+        <div class="modal-footer">
+          <button type="button" class="btn default-button" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</th:block>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kasa</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+
+    <div class="row mt-3">
+        <div class="col-auto">
+            <button type="button" class="btn default-button mb-3" onclick="window.location.href='/chest/payin'">
+                <span class="fas fa-plus"></span>
+                Para Girişi Yap
+            </button>
+        </div>
+
+        <div class="col-auto">
+            <button type="button" class="btn red-button mb-3" onclick="window.location.href='/chest/payout'">
+                <span class="fas fa-minus"></span>
+                Para Çıkışı Yap
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="card mt-4 ms-2">
+
+            <div class="card-header">
+                <span class="fas fa-file-alt"></span>
+                Kasa Hareketleri
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-7">
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="type_select" class="form-label">İşlem Türü</label>
+                                <select class="form-select" id="type_select">
+                                    <option value="1" selected>Giriş</option>
+                                    <option value="2">Çıkış</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="pay_type_select" class="form-label">Ödeme Türü</label>
+                                <select class="form-select" id="pay_type_select">
+                                    <option value="0" selected>Tümü</option>
+                                    <option value="1" >Ödendi</option>
+                                    <option value="2">Ödenmedi</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5">
+                        <form class="col-12 col-lg-auto mb-3 mt-3 mb-lg-0 me-lg-3">
+                            <div class="row">
+                                <div class="col-md-5"></div>
+                                <div class="col-auto">
+                                    <input type="search" class="form-control form-control-dark" placeholder="Ara" aria-label="Search">
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="row" id="chestTableDiv">
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal" id="chestModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="chestModalContent">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn default-button" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+
+</body>
+</html>

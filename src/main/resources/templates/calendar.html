@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+    <div class="card" id="calendar_card">
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-5">
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                        <div class="row">
+                            <div class="col-auto">
+                                <input type="search" class="form-control form-control-dark" placeholder="Doktor Ara" aria-label="Search">
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-5">
+                    <button type="button" class="btn default-button mb-3" id="prev_week">
+                        <span class="fas fa-arrow-left"></span>
+                    </button>
+                    <span>23</span>
+                    <button type="button" class="btn default-button mb-3" id="next_week">
+                        <span class="fas fa-arrow-right"></span>
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn default-button mb-3" data-bs-toggle="modal" data-bs-target="#addMeetingModal">
+                        <span class="fas fa-plus"></span>
+                        Yeni Randevu Ekle
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="row mt-3" id="calendar_row">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span>09.00</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>10.00</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span>11.00</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>12.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span>13.00</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>14.00</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span>15.00</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span>16.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row" id="calendar_main_row">
+                    <div class="col-auto">
+                        <div class="row mt-5"><span>P.</span></div>
+                        <div class="row calendar_day_row"><span>S.</span></div>
+                        <div class="row calendar_day_row"><span>Ç.</span></div>
+                        <div class="row calendar_day_row"><span>P.</span></div>
+                        <div class="row calendar_day_row"><span>C.</span></div>
+                    </div>
+
+                    <div class="col">
+
+                        <div class="row calendar_inside-row">
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>09.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>10.00</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>11.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>12.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>13.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>14.00</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>15.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>16.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row calendar_inside-row">
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>09.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>10.00</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>11.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>12.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>13.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>14.00</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>15.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>16.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row calendar_inside-row">
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>09.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>10.00</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>11.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>12.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>13.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>14.00</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>15.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>16.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row calendar_inside-row">
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>09.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>10.00</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>11.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>12.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>13.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>14.00</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>15.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>16.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="row calendar_inside-row">
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>09.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>10.00</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>11.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>12.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>13.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>14.00</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span>15.00</span>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span>16.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal" id="addMeetingModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <span class="fas fa-plus"></span>
+                        Yeni Randevu Ekle
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="row g-3" id="meeting_add_form">
+
+                        <div class="row mt-3">
+                            <label for="c_select" class="form-label">Hasta</label>
+                            <select id="c_select" class="selectpicker" data-width="100%" data-show-subtext="true" data-live-search="true">
+                                <option value="0" selected>Müşteri seçiniz</option>
+
+                            </select>
+                        </div>
+
+                        <div class="row mt-3">
+                            <label for="p_select" class="form-label">Hasta</label>
+                            <select id="p_select" class="selectpicker" data-width="100%" data-show-subtext="true" data-live-search="true">
+                                <option value="0" selected>Hasta seçiniz</option>
+
+                            </select>
+                        </div>
+
+                        <div class="row mt-3 me-auto ms-auto">
+                            <label for="m_date" class="form-label">Randevu Tarihi</label>
+                            <input type="date" class="form-control" id="m_date" placeholder="Randevu Tarihi Giriniz" required>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn red-button" data-bs-dismiss="modal">Kapat</button>
+                            <button type="submit" class="btn default-button">Kaydet</button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</th:block>
+
+</body>
+</html>

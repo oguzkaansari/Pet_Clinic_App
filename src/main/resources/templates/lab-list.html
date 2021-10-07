@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+    <title>Testler</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+    <div class="row">
+
+        <div class="card mt-4 ms-2">
+
+            <div class="card-header">
+                <span class="fas fa-file-alt"></span>
+                Testler
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-7">
+                        <button type="button" class="btn default-button mb-3" onclick="window.location.href='/lab/form'">
+                            <span class="fas fa-plus"></span>
+                            Yeni Test
+                        </button>
+
+                    </div>
+
+                    <div class="col-md-5">
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" id="test_search_form">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <input type="search" id="l_key" class="form-control form-control-dark" placeholder="Test Ara" aria-label="Search">
+                                </div>
+                                <div class="col-auto">
+                                    <select class="form-select" id="l_status_search">
+                                        <option value="0" selected>Durum</option>
+                                        <option value="1">Devam Eden</option>
+                                        <option value="2">Tamamlandı</option>
+                                    </select>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Test No.</th>
+                            <th scope="col">Test Türü</th>
+                            <th scope="col">Hasta Adı</th>
+                            <th scope="col">Çip No.</th>
+                            <th scope="col">Karne/Küpe No.</th>
+                            <th scope="col">Irkı</th>
+                            <th scope="col">Tür</th>
+                            <th scope="col">Renk</th>
+                            <th scope="col">Cinsiyet</th>
+                            <th scope="col">Sonuç</th>
+
+                        </tr>
+                        </thead>
+                        <tbody id="tBodyTests">
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal" id="testResultModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="testResultModalContent">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn default-button" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+
+</body>
+</html>

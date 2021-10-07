@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Test Ekle</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+  <div class="row">
+
+    <div class="card mt-4 ms-2">
+      <div class="card-header">
+        <span class="fas fa-plus"></span>
+        Test Ekle
+      </div>
+      <div class="card-body">
+
+        <form class="row g-3" id="test_add_form">
+
+          <div class="row mt-3">
+
+            <div class="col-md-6">
+              <div class="row mt-3">
+                <label for="p_selectlab" class="form-label">Hasta</label>
+                <select id="p_selectlab" class="selectpicker" data-width="100%" data-show-subtext="true" data-live-search="true">
+                  <option value="0" selected>Hasta seçiniz</option>
+
+                </select>
+              </div>
+
+              <div class="row mt-3">
+                <label for="t_type" class="form-label">Test Tipi</label>
+                <select id="t_type" class="selectpicker" data-width="100%" data-show-subtext="true" data-live-search="true">
+                  <option value="0" selected>Test Tipi Seçiniz</option>
+
+                </select>
+              </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+              <div class="row mt-3">
+
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                  <div class="card" id="labFormPetCard">
+                    <div class="card-header">
+                      <span class="fas fa-lira-sign"></span>
+                      Hasta Bilgileri
+                    </div>
+                    <div class="card-body" id="pet_details_card_body">
+
+                      <div class="row mt-1">
+                        <div class="col-md-4">
+                          <p class="card-text"><span id="lab_p_name">Hasta Adı : </span></p>
+                        </div>
+                        <div class="col-md-4">
+                          <p class="card-text"><span id="lab_p_chipno">Çip No. : </span></p>
+                        </div>
+                        <div class="col-md-4">
+                          <p class="card-text"><span id="lab_p_cardno">Karne/Küpe No. : </span></p>
+                        </div>
+                      </div>
+
+                      <div class="row mt-1">
+                        <div class="col-md-4">
+                          <p class="card-text"><span id="lab_p_birthdate">Doğum Tarihi : </span></p>
+                        </div>
+                        <div class="col-md-4">
+                          <p class="card-text"><span id="lab_p_color">Renk : </span></p>
+                        </div>
+                        <div class="col-md-4">
+                          <p class="card-text"><span id="lab_p_has_spayed">Kısırlaştırılmış : </span></p>
+                        </div>
+                      </div>
+
+                      <div class="row mt-1">
+                        <div class="col-md-4">
+                          <p class="card-text"><span id="lab_p_race">Irk : </span></p>
+                        </div>
+                        <div class="col-md-4">
+                          <p class="card-text"><span id="lab_p_spec">Tür : </span></p>
+                        </div>
+                        <div class="col-md-4">
+                          <p class="card-text"><span id="lab_p_gender">Cinsiyet : </span></p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-1"></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="row mt-3 me-auto ms-auto">
+            <label for="t_result" class="form-label">Test Sonucu</label>
+            <textarea type="text" class="form-control" id="t_result" placeholder="Test Sonucu Giriniz" rows="3"></textarea>
+
+          </div>
+
+          <div class="row mt-3">
+
+            <div class="col-md-11"></div>
+
+            <div class="col-md-1">
+              <button type="submit" class="btn default-button mb-3 mt-3">Ekle</button>
+            </div>
+          </div>
+
+        </form>
+
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</th:block>
+
+</body>
+</html>

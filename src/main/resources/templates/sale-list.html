@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+  <title>Satış Listesi</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+  <div class="row">
+
+    <div class="card mt-4 ms-2">
+
+      <div class="card-header">
+        <span class="fas fa-user"></span>
+        Satışlar
+      </div>
+
+      <div class="card-body">
+
+        <div class="row">
+
+          <div class="col-md-8">
+            <button type="button" class="btn default-button mb-3" onclick="window.location.href='/sale/form'">
+              <span class="fas fa-plus"></span>
+              Yeni Satış Ekle
+            </button>
+
+          </div>
+
+          <div class="col-md-4">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" id="sale_list_search">
+              <div class="row">
+
+                <div class="col-auto">
+                  <input type="search" id="s_key" class="form-control form-control-dark" placeholder="Satış Ara" aria-label="Search">
+                </div>
+
+                <div class="col-auto">
+                  <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+
+        <div class="row">
+
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Ürün Adı</th>
+              <th scope="col">Birim</th>
+              <th scope="col">Tip</th>
+              <th scope="col">Barkod</th>
+              <th scope="col">Kod</th>
+              <th scope="col">KDV</th>
+              <th scope="col">Alış Fiyatı</th>
+              <th scope="col">Satış Fiyatı</th>
+              <th scope="col">Kategori</th>
+              <th scope="col">Müşteri</th>
+              <th scope="col">Not</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal" id="saleNoteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" id="saleNoteModalContent">
+
+        <div class="modal-footer">
+          <button type="button" class="btn default-button" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</th:block>
+
+</body>
+</html>

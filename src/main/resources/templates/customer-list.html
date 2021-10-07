@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+    <title>Müşteri Listesi</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+    <div class="row">
+
+        <div class="card mt-4 ms-2">
+
+            <div class="card-header">
+                <span class="fas fa-users"></span>
+                Müşteriler
+            </div>
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-7">
+                        <button type="button" class="btn default-button mb-3" onclick="window.location.href='/customer/form/0'">
+                            <span class="fas fa-plus"></span>
+                            Yeni Müşteri Ekle
+                        </button>
+
+                    </div>
+
+                    <div class="col-md-5">
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" id="customer_search_form">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <input type="search" id="c_key" class="form-control form-control-dark" placeholder="Müşteri Ara" aria-label="Search">
+                                </div>
+                                <div class="col-auto">
+                                    <select class="form-select" id="c_status_search">
+                                        <option value="0" selected>Durum</option>
+                                        <option value="1">Aktif</option>
+                                        <option value="2">Aktif Değil</option>
+                                    </select>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Adı ve Soyadı</th>
+                            <th scope="col">Tel</th>
+                            <th scope="col">Tel2</th>
+                            <th scope="col">E-Posta</th>
+                            <th scope="col">T.C. No</th>
+                            <th scope="col">Vergi Dairesi</th>
+                            <th scope="col">Not</th>
+                            <th scope="col">Durumu</th>
+                            <th scope="col">Adresi</th>
+                            <th scope="col">Grupları</th>
+                            <th scope="col">Aktif Reçete</th>
+                            <th scope="col">Petler</th>
+                            <th scope="col">İşlemler</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tBodyCustomers">
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal" id="customerDetailModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="customerDetailModalContent">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn default-button" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+
+
+</body>
+</html>

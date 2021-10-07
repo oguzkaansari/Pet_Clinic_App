@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+    <title>Müşteri Grupları</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+    <div class="row">
+
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="row">
+
+                <div class="card mt-4 ms-2">
+
+                    <div class="card-header">
+                        <span class="fas fa-users"></span>
+                        Müşteri Grupları
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-8">
+                                <button type="button" class="btn default-button mb-3" data-bs-toggle="modal" data-bs-target="#addCustomerGroupModal">
+                                    <span class="fas fa-plus"></span>
+                                    Yeni Grup Ekle
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Grup</th>
+                                    <th scope="col">Üye Sayısı</th>
+                                    <th scope="col">Detay</th>
+                                    <th scope="col">Görüntüle</th>
+                                    <th scope="col">Sil</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tBodyGroups">
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+
+    <div class="modal" id="addCustomerGroupModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">
+                        <span class="fas fa-plus"></span>
+                        Yeni Grup Ekle
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="row g-3" id="group_add_form">
+
+                        <div class="row mt-3 me-auto ms-auto">
+                            <label for="g_name" class="form-label">Grup Adı</label>
+                            <input type="text" class="form-control" id="g_name" placeholder="Grup Adını Yazınız">
+                        </div>
+
+                        <div class="row mt-3 me-auto ms-auto">
+                            <label for="g_detail" class="form-label">Grup Detayı</label>
+                            <textarea type="text" class="form-control" id="g_detail" placeholder="Grup Detayını Yazınız" rows="3"></textarea>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn red-button" data-bs-dismiss="modal">Kapat</button>
+                            <button type="submit" class="btn default-button" data-bs-dismiss="modal">Kaydet</button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="groupDetailModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="groupDetailModalContent">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn default-button" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</th:block>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+
+<head>
+    <title>Yönetim</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card" id="expectedMeetingsCard" style="width: 18rem;">
+                <div class="card-body" id="expectedMeetingsCardBody">
+                    <h5 class="card-title">Günlük Beklenen Randevu</h5>
+                    <h5>0</h5>
+                    <p class="card-text"><span>- 0,00% </span>Bir önceki güne oranla</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" id="dailyCustomerCard" style="width: 18rem;">
+                <div class="card-body" id="dailyCustomerCardBody">
+                    <h5 class="card-title">Günlük Yeni Müşteri</h5>
+                    <h5>0</h5>
+                    <p class="card-text"><span>- 0,00% </span>Bir önceki güne oranla</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" id="dailyGiroCard" style="width: 18rem;">
+                <div class="card-body" id="dailyGiroCardBody">
+                    <h5 class="card-title">Günlük Ciro</h5>
+                    <h5>0,00 TL</h5>
+                    <p class="card-text"><span>- 0,00% </span>Bir önceki güne oranla</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" id="totalStockCard" style="width: 18rem;">
+                <div class="card-body" id="totalStockCardBody">
+                    <h5 class="card-title">Toplam Stok Değeri</h5>
+                    <h5>0,00 TL</h5>
+                    <p class="card-text"><span>- 0,00% </span>Bir önceki güne oranla</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card" >
+                <div class="card-header">
+                    <span class="fas fa-undo-alt"></span>
+                    Geçmiş Randevular
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Doktor</th>
+                            <th scope="col">Müşteri</th>
+                            <th scope="col">Hasta</th>
+                            <th scope="col">Tarih</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tBodyPastMeetings">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card" >
+                <div class="card-header">
+                    <span class="fas fa-redo-alt"></span>
+                    Yaklaşan Randevular
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Doktor</th>
+                            <th scope="col">Müşteri</th>
+                            <th scope="col">Hasta</th>
+                            <th scope="col">Tarih</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tBodyFutureMeetings">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+    </div>
+
+</th:block>
+</body>
+</html>

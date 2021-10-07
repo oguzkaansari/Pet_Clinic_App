@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+
+<head>
+    <title>Yeni müşteri</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+  <div class="row">
+    <div class="card mt-4 ms-2">
+      <div class="card-header">
+        <span class="fas fa-user-plus"></span>
+        Yeni Müşteri Ekle
+      </div>
+      <div class="card-body">
+        <form class="row g-3" id="customer_add_form">
+
+          <div class="col-md-6 me-auto ms-auto">
+            <div class="row me-auto ms-auto">
+              <label for="c_name" class="form-label">Hasta Sahibi Adı *</label>
+              <input type="text" class="form-control" id="c_name" placeholder="Hasta Sahibi Adı Yazınız" required>
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_phone1" class="form-label">Telefon Numarası</label>
+              <input type="tel" class="form-control" id="c_phone1" placeholder="Telefon Numarası Yazınız" required>
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_mail" class="form-label">E-Posta Adresi</label>
+              <input type="email" class="form-control" id="c_mail" placeholder="E-Posta Adresi Yazınız">
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_note" class="form-label">Not</label>
+              <input type="text" class="form-control" id="c_note" placeholder="Varsa Notunuzu Yazınız">
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_city" class="form-label">Şehir</label>
+              <input type="text" class="form-control" id="c_city" placeholder="Şehir Bilgisini Yazınız">
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_group" class="form-label">Müşteri Grubu</label>
+              <select class="form-select" id="c_group">
+                <option value="0" selected>Müşteri Grubu Seçin</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="col-md-6 me-auto ms-auto">
+            <div class="row me-auto ms-auto">
+              <label for="c_surname" class="form-label">Hasta Sahibi Soyadı *</label>
+              <input type="text" class="form-control" id="c_surname" placeholder="Hasta Sahibi Soyadı Yazınız" required>
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_phone2" class="form-label">2. Telefon Numarası</label>
+              <input type="tel" class="form-control" id="c_phone2" placeholder="Telefon Numarası Yazınız">
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_taxname" class="form-label">Vergi Dairesi</label>
+              <input type="text" class="form-control" id="c_taxname" placeholder="Vergi Dairesi Adını Yazınız">
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_taxno" class="form-label">VN / T.C. Numarası</label>
+              <input type="number" class="form-control" id="c_taxno" placeholder="T.C. Kimlik Numarası Yazınız">
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_district" class="form-label">İlçe</label>
+              <input type="text" class="form-control" id="c_district" placeholder="İlçe Bilgisini Yazınız">
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_address" class="form-label">Adres</label>
+              <input type="text" class="form-control" id="c_address" placeholder="Adres Bilgisini Yazınız">
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="c_discount" class="form-label">Müşter İndirim Oranı %</label>
+              <input type="number" class="form-control" id="c_discount" placeholder="% Oranı" value="0.0">
+            </div>
+
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-2">
+              <button type="button" class="btn default-button mb-3" data-bs-toggle="modal" data-bs-target="#petFormModal">
+                <span class="fas fa-plus"></span>
+                Hasta Ekle
+              </button>
+            </div>
+
+            <div class="col-md-9"></div>
+
+            <div class="col-md-1">
+              <button type="submit" class="btn default-button mb-3 mt-3">Kaydet</button>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card mt-4 ms-2">
+      <div class="card-header">
+        Yeni Hasta Ekle
+      </div>
+      <div class="card-body">
+
+        <div class="row">
+
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Hasta Adı</th>
+              <th scope="col">Çip No.</th>
+              <th scope="col">Kart No.</th>
+              <th scope="col">Irk</th>
+              <th scope="col">Tür</th>
+              <th scope="col">Renk</th>
+              <th scope="col">Cinsiyet</th>
+              <th scope="col">Kısırlaştırılmış</th>
+              <th scope="col">Doğum Tarihi</th>
+              <th scope="col">İşlemler</th>
+
+
+            </tr>
+            </thead>
+            <tbody id="tBodyPets">
+
+            </tbody>
+          </table>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="customerFormGroupDetailModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" id="customerFormGroupDetailModalContent">
+
+        <div class="modal-footer">
+          <button type="button" class="btn default-button" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="petFormModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">
+            <span class="fas fa-plus"></span>
+            Yeni Hasta Ekle
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form class="row g-3" id="pet_add_form">
+
+            <div class="row mt-1">
+
+              <div class="col-md-1"></div>
+
+              <div class="col-md-10">
+
+                <div class="row">
+
+                  <div class="col-md-4">
+
+                    <div class="row mt-3 me-auto ms-auto">
+                      <label for="p_name" class="form-label">Hasta Adı</label>
+                      <input type="text" class="form-control" id="p_name" placeholder="Hasta Adını Yazınız" required>
+                    </div>
+
+                    <div class="row mt-3 me-auto ms-auto">
+                      <label for="p_birthdate" class="form-label">Doğum Tarihi</label>
+                      <input type="date" class="form-control" id="p_birthdate" placeholder="Doğum Tarihi Giriniz" required>
+                    </div>
+
+                    <div class="row mt-3 me-auto ms-auto">
+                      <label for="p_spec" class="form-label">Tür</label>
+                      <select class="form-select" id="p_spec" required>
+                        <option value="0" selected>Tür Seçiniz</option>
+
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+
+                    <div class="row mt-3 me-auto ms-auto">
+                      <label for="p_chipno" class="form-label">Çip Numarası</label>
+                      <input type="number" class="form-control" id="p_chipno" placeholder="Çip Numarası Giriniz" required>
+                    </div>
+
+                    <div class="row mt-3 me-auto ms-auto">
+                      <label for="p_race" class="form-label">Irkı</label>
+                      <select class="form-select" id="p_race" required>
+                        <option value="0" selected>Irk Seçiniz</option>
+
+                      </select>
+                    </div>
+
+                    <div class="row mt-3 me-auto ms-auto">
+                      <label for="p_color" class="form-label">Rengi</label>
+                      <input type="text" class="form-control" id="p_color" placeholder="Renk Bilgisi Giriniz" required>
+                    </div>
+
+                  </div>
+
+                  <div class="col-md-4">
+
+                    <div class="row mt-3 me-auto ms-auto">
+                      <label for="p_cardno" class="form-label">Karne / Küpe Numarası</label>
+                      <input type="number" class="form-control" id="p_cardno" placeholder="Karne/Küpe No. Giriniz" required>
+                    </div>
+
+                    <div class="row mt-5 me-auto ms-auto">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" id="p_has_spayed">
+                        <label class="form-check-label" for="p_has_spayed">
+                          Kısırlaştırılmış
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="row mt-3 me-auto ms-auto" id="genderRadioDiv">
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="col-md-1"></div>
+
+            </div>
+
+            <div class="row mt-3">
+
+              <div class="col-md-11"></div>
+
+              <div class="col-md-1">
+                <button type="submit" class="btn default-button mb-3 mt-3">Ekle</button>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</th:block>
+
+
+</body>
+</html>

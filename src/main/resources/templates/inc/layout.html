@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+
+<head>
+
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/dist/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/dist/css/bootstrap-select.min.css}">
+  <link rel="stylesheet" th:href="@{/dist/css/fontawesome-free-5.15.4-web/css/all.min.css}">
+  <link rel="stylesheet" th:href="@{/css/site.css}">
+
+</head>
+<body>
+
+<div class="container" id="layout_container">
+
+    <div class="row" id="mainPanel">
+        <div class="col-md-2" id="sidebar_col">
+            <th:block th:replace="inc/sidebar :: sidebar"></th:block>
+        </div>
+        <div class="col-md-10">
+            <div class="row" id="header_row">
+                <th:block th:replace="inc/header :: header"></th:block>
+            </div>
+            <div class="row " id="content">
+                <th:block layout:fragment="content"></th:block>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+<script th:src="@{/dist/js/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/dist/js/popper.min.js}"></script>
+<script th:src="@{/dist/js/bootstrap.min.js}"></script>
+<script th:src="@{/dist/js/bootstrap-select.min.js}"></script>
+<script th:src="@{/dist/css/fontawesome-free-5.15.4-web/js/all.min.js}"></script>
+<script th:src="@{/js/site.js}"></script>
+
+<script th:if="${#httpServletRequest.requestURI.contains('customer/form')}" th:src="@{/js/customer-form.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('customer/list')}" th:src="@{/js/customer-list.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('specifications/group')}" th:src="@{/js/specifications-group.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('specifications/category')}" th:src="@{/js/specifications-category.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('buy/form')}" th:src="@{/js/buy-form.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('buy/list')}" th:src="@{/js/buy-list.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('sale/form')}" th:src="@{/js/sale-form.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('sale/list')}" th:src="@{/js/sale-list.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('product')}" th:src="@{/js/product.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('supplier')}" th:src="@{/js/supplier.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('lab/list')}" th:src="@{/js/lab-list.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('lab/form')}" th:src="@{/js/lab-form.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('chest/list')}" th:src="@{/js/chest-list.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('chest/payin')}" th:src="@{/js/chest-payin.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('chest/payout')}" th:src="@{/js/chest-payout.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('admin/form')}" th:src="@{/js/admin-form.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('admin/list')}" th:src="@{/js/admin-list.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('calendar')}" th:src="@{/js/calendar.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('agenda')}" th:src="@{/js/agenda.js}"></script>
+<script th:if="${#httpServletRequest.requestURI.contains('dashboard')}" th:src="@{/js/dashboard.js}"></script>
+
+
+
+</body>
+</html>

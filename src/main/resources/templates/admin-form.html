@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+    <title>Kullanıcı Ekle</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+    <div class="row">
+
+        <div class="card mt-4 ms-2">
+
+            <div class="card-header">
+                <span class="fas fa-plus"></span>
+                Kullanıcı Ekle
+            </div>
+
+            <div class="card-body">
+
+                <form class="g-3" th:action="@{'/admin/register'}" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row mt-3 me-auto ms-auto">
+                                <label for="name" class="form-label">Adı Soyadı</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Kullanıcı Adı Soyadını Yazınız">
+                            </div>
+                            <div class="row mt-3 me-auto ms-auto">
+                                <label for="phone" class="form-label">Telefon</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="Kullanıcı Telefonunu Giriniz">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row mt-3 me-auto ms-auto">
+                                <img id="imgPreview" src="..." class="rounded mx-auto d-block" alt="...">
+                            </div>
+                            <div class="row mt-3 me-auto ms-auto">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="file" name="file">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row mt-3 me-auto ms-auto">
+                                <label for="email" class="form-label">E-posta</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Kullanıcı E-Posta Adresi Giriniz">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row mt-3 me-auto ms-auto">
+                                <label for="password" class="form-label">Şifre</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Şifre Giriniz">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row mt-3 me-auto ms-auto">
+                                <label for="role" class="form-label">Rol</label>
+                                <select class="form-select" id="role" name="roleId">
+                                    <option value="0" selected>Rol Seçiniz</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-11"></div>
+
+                        <div class="col-md-1">
+                            <button type="submit" class="btn default-button mb-3 mt-3">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</th:block>
+
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+
+<head>
+    <title>Satış Yap</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+    <div class="row">
+
+        <div class="card mt-4 ms-2">
+            <div class="card-header">
+                <span class="fas fa-lira-sign"></span>
+                Kayıtlı Müşteriye Satış
+            </div>
+            <div class="card-body">
+
+                <form class="row g-3" id="sale_add_form">
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-6">
+                            <div class="row mt-3">
+                                <label for="c_select" class="form-label">Müşteri</label>
+                                <select id="c_select" class="selectpicker" data-width="100%" data-show-subtext="true" data-live-search="true">
+                                    <option value="0" selected>Müşteri seçiniz</option>
+                                </select>
+                            </div>
+
+                            <div class="row mt-3">
+                                <label for="pr_select" class="form-label">Ürün</label>
+                                <select id="pr_select" class="selectpicker" data-width="100%" data-show-subtext="true" data-live-search="true">
+                                    <option value="0" selected>Ürün seçiniz</option>
+                                </select>
+                            </div>
+
+                            <div class="row mt-3 me-auto ms-auto">
+                                <label id="s_amount_label" for="s_amount" class="form-label">Miktar</label>
+                                <input type="number" class="form-control" id="s_amount" placeholder="Miktar Giriniz">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="row mt-5">
+
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="card" id="saleFormCard" style="width: 18rem;">
+                                        <div class="card-body" id="saleFormCardBody">
+                                            <h5 class="card-title">Toplam Ücret</h5>
+                                            <h5 id="price">0</h5>
+                                            <p class="card-text"><span id="discount"> </span>% Müşteri İndirimi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3 me-auto ms-auto">
+                        <label for="s_note" class="form-label">Satış Notu</label>
+                        <textarea type="text" class="form-control" id="s_note" placeholder="Satış Notunuzu Giriniz" rows="3"></textarea>
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-11"></div>
+
+                        <div class="col-md-1">
+                            <button type="submit" class="btn default-button mb-3 mt-3">Ekle</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-3">
+
+        <div class="card mt-4 ms-2">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="fas fa-file-alt"></span>
+                        Aktif Reçete
+                    </div>
+                    <div class="col-md-7"></div>
+                    <div class="col-md-2">
+                        No : 0000000000
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-8"></div>
+
+                    <div class="col-md-4">
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" id="sale_form_search">
+                            <div class="row">
+
+                                <div class="col-auto">
+                                    <input type="search" id="s_key" class="form-control form-control-dark" placeholder="Satış Ara" aria-label="Search">
+                                </div>
+
+                                <div class="col-auto">
+                                    <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Ürün Adı</th>
+                            <th scope="col">Birim</th>-
+                            <th scope="col">Tip</th>
+                            <th scope="col">Barkod</th>
+                            <th scope="col">Kod</th>
+                            <th scope="col">KDV</th>
+                            <th scope="col">Alış Fiyatı</th>
+                            <th scope="col">Satış Fiyatı</th>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Not</th>
+
+                        </tr>
+                        </thead>
+                        <tbody id="tBodySale">
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal" id="saleFormNoteModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="saleFormNoteModalContent">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn default-button" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+
+</body>
+</html>

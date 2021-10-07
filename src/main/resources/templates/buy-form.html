@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+
+<head>
+  <title>Tedarikçiden Alış</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+    <div class="row">
+
+        <div class="card mt-4 ms-2">
+            <div class="card-header">
+                <span class="fas fa-redo-alt"></span>
+                Kayıtlı Tedarikçiden Alış
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col">
+                        <button type="button" class="btn default-button mb-3" onclick="window.location.href='/supplier'">
+                            <span class="fas fa-plus"></span>
+                            Yeni Tedarikçi Ekle
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <form class="row g-3" id="buy_add_form">
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-4">
+                            <label for="sup_select_buy" class="form-label">Tedarikçi</label>
+                            <select id="sup_select_buy" class="selectpicker" data-width="100%" data-show-subtext="true" data-live-search="true">
+                                <option value="0" selected>Tedarikçi seçiniz</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="t_title" class="form-label">Başlık</label>
+                            <input type="text" class="form-control" id="t_title" placeholder="Başlık Giriniz">
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="col-md-4">
+                                <label for="t_price" class="form-label">Tutar</label>
+                                <input type="number" class="form-control" id="t_price" placeholder="Tutar Giriniz">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <div class="col">
+
+                            <label for="t_note" class="form-label">Not</label>
+                            <textarea type="text" class="form-control" id="t_note" placeholder="Alış Notunuzu Giriniz" rows="3"></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-11"></div>
+
+                        <div class="col-md-1">
+                            <button type="submit" class="btn default-button mb-3 mt-3">Ekle</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-3">
+
+        <div class="card mt-4 ms-2">
+            <div class="card-header">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="fas fa-file-alt"></span>
+                        Geçmiş Faturalar
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-8"></div>
+
+                    <div class="col-md-4">
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" id="buy_form_search">
+                            <div class="row">
+
+                                <div class="col-auto">
+                                    <input type="search" id="b_key" class="form-control form-control-dark" placeholder="Fatura Ara" aria-label="Search">
+                                </div>
+
+                                <div class="col-auto">
+                                    <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Başlık</th>
+                            <th scope="col">Tutar</th>
+                            <th scope="col">Not</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tBodyBuyTickets">
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal" id="ticketNoteModalBuyForm" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="ticketNoteModalBuyFormContent">
+
+                <div class="modal-footer">
+                    <button type="button" class="btn default-button" data-bs-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</th:block>
+
+</body>
+</html>

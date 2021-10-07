@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+  <title>Kullanıcılar</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+  <div class="row">
+
+    <div class="card mt-4 ms-2">
+
+      <div class="card-header">
+        <span class="fas fa-users"></span>
+        Kullanıcılar
+      </div>
+
+      <div class="card-body">
+
+        <div class="row">
+
+          <div class="col-md-8">
+            <button type="button" class="btn default-button mb-3" onclick="window.location.href='/admin/form/0'">
+              <span class="fas fa-plus"></span>
+              Yeni Kullanıcı Ekle
+            </button>
+
+          </div>
+
+          <div class="col-md-4">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+              <div class="row">
+
+                <div class="col-auto">
+                  <input type="search" class="form-control form-control-dark" placeholder="Kullanıcı Ara" aria-label="Search">
+                </div>
+
+                <div class="col-auto">
+                  <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+
+        <div class="row">
+
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Avatar</th>
+              <th scope="col">Adı Soyadı</th>
+              <th scope="col">Telefon</th>
+              <th scope="col">E-Posta</th>
+              <th scope="col">Rol</th>
+              <th scope="col">Durumu</th>
+              <th scope="col">İşlemler</th>
+            </tr>
+            </thead>
+            <tbody id="tBodyUsers">
+
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</th:block>
+
+</body>
+</html>

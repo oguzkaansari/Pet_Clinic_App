@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+  <title>Tedarikçiler</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+  <div class="row">
+
+    <div class="card mt-4 ms-2">
+
+      <div class="card-header">
+        <span class="fas fa-truck"></span>
+        Tedarikçiler
+      </div>
+
+      <div class="card-body">
+
+        <div class="row">
+
+          <div class="col-md-8">
+            <button type="button" class="btn default-button mb-3" data-bs-toggle="modal" data-bs-target="#addSupplierModal">
+              <span class="fas fa-plus"></span>
+              Yeni Tedarikçi Ekle
+            </button>
+
+          </div>
+
+          <div class="col-md-4">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+              <div class="row">
+
+                <div class="col-auto">
+                  <input type="search" class="form-control form-control-dark" placeholder="Tedarikçi Ara" aria-label="Search">
+                </div>
+
+                <div class="col-auto">
+                  <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+        </div>
+
+        <div class="row">
+
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Tedarikçi Adı / Ünvanı</th>
+              <th scope="col">E-Posta</th>
+              <th scope="col">Telefon</th>
+              <th scope="col">Ürünler</th>
+            </tr>
+            </thead>
+            <tbody id="tBodySuppliers">
+
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="modal" id="addSupplierModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">
+            <span class="fas fa-plus"></span>
+            Yeni Tedarikçi Ekle
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form class="row g-3" id="supplier_add_form">
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="sup_name" class="form-label">Tedarikçi Adı / Ünvanı</label>
+              <input type="text" class="form-control" id="sup_name" placeholder="Tedarikçi Adını Yazınız">
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="sup_mail" class="form-label">E-Posta</label>
+              <input type="email" class="form-control" id="sup_mail" placeholder="E-Posta Adresini Yazınız">
+            </div>
+
+            <div class="row mt-3 me-auto ms-auto">
+              <label for="sup_phone" class="form-label">Telefon</label>
+              <input type="tel" class="form-control" id="sup_phone" placeholder="Telefon Mumarasını Giriniz">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn red-button" data-bs-dismiss="modal">Kapat</button>
+              <button type="submit" class="btn default-button">Kaydet</button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="supplierDetailModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" id="supplierDetailModalContent">
+
+        <div class="modal-footer">
+          <button type="button" class="btn default-button" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</th:block>
+
+</body>
+</html>

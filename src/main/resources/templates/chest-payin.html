@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Ödeme Girişi</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+    <div class="row">
+
+        <div class="card mt-4 ms-2">
+            <div class="card-header">
+                <span class="fas fa-lira-sign"></span>
+                Yeni Ödeme Girişi
+            </div>
+            <div class="card-body">
+
+                <form class="row g-3" id="pay_in_form">
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-6">
+                            <div class="row mt-3">
+                                <label for="r_select" class="form-label">Reçete</label>
+                                <select id="r_select" class="selectpicker" data-width="100%" data-show-subtext="true" data-live-search="true">
+                                    <option value="0" selected>Reçete seçiniz</option>
+
+                                </select>
+                            </div>
+
+                            <div class="row mt-3 me-auto ms-auto">
+                                <label for="pay_type_select" class="form-label">Ürün</label>
+                                <select class="form-select" id="pay_type_select">
+                                    <option value="0" selected>Ödeme Yöntemi Seçiniz</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="row mt-5">
+
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="card" id="payinFormCard" style="width: 18rem;">
+                                        <div class="card-body" id="payinFormCardBody">
+                                            <h5 class="card-title">Toplam Ücret</h5>
+                                            <h5 id="r_price">0</h5>
+                                            <p class="card-text"><span id="r_discount">- 0,00% </span>Müşteri İndirimi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3 me-auto ms-auto">
+                        <label for="t_note" class="form-label">Not</label>
+                        <textarea type="text" class="form-control" id="t_note" placeholder="Notunuzu Girin" rows="3"></textarea>
+
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-11"></div>
+
+                        <div class="col-md-1">
+                            <button type="submit" class="btn default-button mb-3 mt-3">Ekle</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-3">
+
+        <div class="card" >
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="fas fa-file-alt"></span>
+                        Reçete İçeriği
+                    </div>
+                    <div class="col-md-7"></div>
+                    <div class="col-md-2">
+                        No : <span id="r_no"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-md-8"></div>
+
+                    <div class="col-md-4">
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                            <div class="row">
+
+                                <div class="col-auto">
+                                    <input type="search" class="form-control form-control-dark" placeholder="Ara" aria-label="Search">
+                                </div>
+
+                                <div class="col-auto">
+                                    <button type="submit" class="btn default-button "><span class="fas fa-search"></span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Ürün Adı</th>
+                            <th scope="col">Birim</th>
+                            <th scope="col">Tip</th>
+                            <th scope="col">Barkod</th>
+                            <th scope="col">Kod</th>
+                            <th scope="col">KDV</th>
+                            <th scope="col">Alış Fiyatı</th>
+                            <th scope="col">Satış Fiyatı</th>
+                            <th scope="col">Kategori</th>
+                            <th scope="col">Not</th>
+
+                        </tr>
+                        </thead>
+                        <tbody id="tBodyChestReceipt">
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</th:block>
+
+</body>
+</html>

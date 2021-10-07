@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div th:fragment="sidebar" id="sidebar" class="flex-shrink-0 p-3 sidebar_col">
+    <div>
+      <h2><b>Pet Klinik</b></h2>
+    </div>
+  <ul class="list-unstyled ps-0">
+    <li class="mb-1 mt-4">
+      <button class="btn btn-toggle align-items-center rounded collapsed" onclick="window.location.href='/dashboard'" aria-expanded="true">
+        <span class="fas fa-home"></span>
+        Anasayfa
+      </button>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#customer-collapse" aria-expanded="false">
+        <span class="fas fa-user"></span>
+        Müşteri
+      </button>
+      <div class="collapse" id="customer-collapse">
+        <ul class="btn-toggle-nav list-inline fw-normal pb-1 small">
+          <li><a href="/customer/form/0" class="link-dark rounded mt-2 mb-2"><span class="fas fa-user-plus"></span>Yeni Müşteri</a></li>
+          <li><a href="/customer/list" class="link-dark rounded mb-2"><span class="fas fa-users"></span>Müşteri Listesi</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" onclick="window.location.href='/calendar'" aria-expanded="false">
+        <span class="fas fa-clock"></span>
+        Randevu Takvimi
+      </button>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#sales-collapse" aria-expanded="false">
+        <span class="fas fa-lira-sign"></span>
+        Satış
+      </button>
+      <div class="collapse" id="sales-collapse">
+        <ul class="btn-toggle-nav list-inline fw-normal pb-1 small">
+          <li><a href="/sale/form" class="link-dark rounded mt-2 mb-2"><span class="fas fa-lira-sign"></span>Kayıtlı Müşteriye Satış</a></li>
+          <li><a href="/sale/list" class="link-dark rounded mb-2"><span class="fas fa-lira-sign"></span>Satış Listesi</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#buy-collapse" aria-expanded="false">
+        <span class="fas fa-lira-sign"></span>
+        Alış
+      </button>
+      <div class="collapse" id="buy-collapse">
+        <ul class="btn-toggle-nav list-inline fw-normal pb-1 small">
+          <li><a href="/buy/form" class="link-dark rounded mt-2 mb-2"><span class="fas fa-lira-sign"></span>Tedarikçiden Alış</a></li>
+          <li><a href="/buy/list" class="link-dark rounded mb-2"><span class="fas fa-lira-sign"></span>Alış Listesi</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" onclick="window.location.href='/lab/list'" aria-expanded="false">
+        <span class="fas fa-flask"></span>
+        Laboratuar
+      </button>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" onclick="window.location.href='/chest/list'" aria-expanded="false">
+        <span class="fas fa-briefcase"></span>
+        Kasa İşlemleri
+      </button>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" onclick="window.location.href='/product'" aria-expanded="false">
+        <span class="fas fa-syringe"></span>
+        Ürün-Aşı Tanım
+      </button>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" onclick="window.location.href='/supplier'" aria-expanded="false">
+        <span class="fas fa-truck"></span>
+        Tedarikçiler
+      </button>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" onclick="window.location.href='/agenda'" aria-expanded="false">
+        <span class="fas fa-book-open"></span>
+        Ajandam
+      </button>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" onclick="window.location.href='/statistics'" aria-expanded="false">
+        <span class="fas fa-tachometer-alt"></span>
+        İstatistikler
+      </button>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#specifications-collapse" aria-expanded="false">
+        <span class="fas fa-pencil-alt"></span>
+        Tanımlamalar
+      </button>
+      <div class="collapse" id="specifications-collapse">
+        <ul class="btn-toggle-nav list-inline fw-normal pb-1 small">
+          <li><a href="/specifications/group" class="link-dark rounded mb-2"><span class="fas fa-users"></span>Müşteri Grubu</a></li>
+          <li><a href="/specifications/category" class="link-dark rounded mb-2"><span class="fas fa-syringe"></span>Ürün Kategorisi</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="mb-1">
+      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#settings-collapse" aria-expanded="false">
+        <span class="fas fa-cog"></span>
+        Ayarlar
+      </button>
+      <div class="collapse" id="settings-collapse">
+        <ul class="btn-toggle-nav list-inline fw-normal pb-1 small">
+          <li><a href="/admin/list" class="link-dark rounded mt-2 mb-2"><span class="fas fa-users"></span>Kullanıcılar</a></li>
+          <li><a href="#" class="link-dark rounded mb-2"><span class="fas fa-user"></span>Hesabım</a></li>
+          <li><a href="/password" class="link-dark rounded mb-2"><span class="fas fa-pencil-alt"></span>Şifre Değiştir</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+</body>
+</html>

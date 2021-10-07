@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="inc/layout">
+">
+<head>
+    <title>İstatistikler</title>
+</head>
+<body>
+
+<th:block layout:fragment="content">
+
+    <div class="row mt-4 ">
+
+        <div class="col-md-4">
+            <div class="card" id="busiestDayCard" >
+                <div class="card-body" id="busiestDayCardBody">
+                    <h5 class="card-title">Haftanın En Yoğun Günü</h5>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <p class="card-text">
+                                    <span class="far fa-calendar-alt"></span>
+                                    Tarih
+                                </p>
+
+                            </div>
+                            <div class="row mt-2">
+                                <h5>11/11/2021</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <p class="card-text">
+                                    <span class="fas fa-clock"></span>
+                                    Randevu Sayısı
+                                </p>
+                            </div>
+                            <div class="row mt-2">
+                                <h5>0</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card" id="mostActiveCustomerCard" >
+                <div class="card-body" id="mostActiveCustomerCardBody">
+                    <h5 class="card-title">Haftanın En Aktif Müşterisi</h5>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <p class="card-text">
+                                    <span class="fas fa-user"></span>
+                                    Müşteri Adı
+                                </p>
+
+                            </div>
+                            <div class="row mt-2">
+                                <h5>Oğuzkaan Sarı</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <p class="card-text">
+                                    <span class="fas fa-clock"></span>
+                                    Randevu Sayısı
+                                </p>
+                            </div>
+                            <div class="row mt-2">
+                                <h5>0</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card" id="visitCounterCard" >
+                <div class="card-body" id="visitCounterCardBody">
+                    <h5 class="card-title">Haftanın Ziyaret Sayısı</h5>
+                    <div class="row mt-1">
+                        <p class="card-text">
+                            <span class="fas fa-plus"></span>
+                            0000
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card" >
+                <div class="card-header">
+                    <span class="fas fa-undo-alt"></span>
+                    Müşteri Başına Kazanç
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Adı Soyadı</th>
+                            <th scope="col">Kazanç</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card" >
+                <div class="card-header">
+                    <span class="fas fa-redo-alt"></span>
+                    Ödeme Tipi Başına Kazanç
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Ödeme Tipi</th>
+                            <th scope="col">Kazanç</th>
+                            <th scope="col">Yıl</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-5">
+
+        <div class="card" >
+            <div class="card-header">
+                <span class="fas fa-undo-alt"></span>
+                Ödeme Tipine Göre Yıl Bazında Aylık Kazanç
+            </div>
+            <div class="card-body">
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <label for="stats_pay_type" class="form-label">Ödeme Tipi</label>
+                            <select class="form-select" id="stats_pay_type">
+                                <option value="0" selected>Seçiniz</option>
+                                <option value="1">Aktif</option>
+                                <option value="2">Aktif Değil</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="stats_month" class="form-label">Ay</label>
+                            <select class="form-select" id="stats_month">
+                                <option value="0" selected>Seçiniz</option>
+                                <option value="1">Aktif</option>
+                                <option value="2">Aktif Değil</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="stats_year" class="form-label">Yıl</label>
+                            <select class="form-select" id="stats_year">
+                                <option value="0" selected>Seçiniz</option>
+                                <option value="1">Aktif</option>
+                                <option value="2">Aktif Değil</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <div class="row mt-4">
+
+                                <div class="col-auto">
+                                    <button type="submit" class="btn default-button">
+                                        <span class="fas fa-plus"></span>
+                                        Listele
+                                    </button>
+                                </div>
+
+                                <div class="col-auto">
+                                    <button type="reset" class="btn blue-button">
+                                        <span class="fas fa-sync-alt"></span>
+                                        Yenile
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Ödeme Tipi </th>
+                                <th scope="col">Kazanç</th>
+                                <th scope="col">Yıl</th>
+                                <th scope="col">Ay</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+</th:block>
+
+</body>
+</html>
