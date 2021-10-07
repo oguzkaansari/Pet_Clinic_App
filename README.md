@@ -1,6 +1,6 @@
-# Pet Clinic Web Applciation with Spring MVC
+# Pet Clinic Web Application with Spring MVC
 
-This web applciation is designed as a veterinary clinic automation system that includes admin, doctor and secretary tools.
+This web application is designed as a veterinary clinic automation system that includes admin, doctor and secretary tools.
 
 ## Languages Used
 
